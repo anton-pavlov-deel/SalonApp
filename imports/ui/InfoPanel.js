@@ -2,13 +2,7 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Panel from './Panel';
-
-
-const DICT = {
-  name: 'Ф.И.О.',
-  role: 'Должность',
-  percent: 'Проц. ставка'
-}
+import DICT from '../constants/dict';
 
 export default class InfoPanel extends Component {
   render() {
