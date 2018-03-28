@@ -18,7 +18,7 @@ class AddEmployeePopup extends Component {
     const form = <Form
       className='add-employee-form'
       onSubmit={this.handleSubmit.bind(this)}
-      fields={['name', 'role', 'percent']}
+      fields={['name', 'role', 'percent', 'birth', 'number']}
     />
 
     return (

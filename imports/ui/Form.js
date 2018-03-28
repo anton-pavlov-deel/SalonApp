@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import Button from './Button';
 import _ from 'lodash';
-import DICT from '../constants/employeeDict.js';
+import DICT from '../constants/dict.js';
 
 export default class Form extends Component {
   constructor(props) {
