@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import Employees from '../imports/api/collections/employees';
+import '../imports/api/collections/employees';
+import '../imports/api/collections/clients';
 
 Meteor.startup(() => {
-  
+
 });

@@ -17,6 +17,7 @@ const Store = createStore(
   )
 );
 
-subscribeEmployees(Store.dispatch.bind(null, initEmployees()));
+subscribeEmployees(Store.dispatch.bind(null, initEmployees()))
+  .then(subscribeClients.bind(null, Store.dispatch.bind(null, initClients())));
 
 export default Store;
