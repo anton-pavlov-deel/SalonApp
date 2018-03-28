@@ -20,12 +20,7 @@ export default class DropMenu extends Component {
   }
 
   componentDidMount() {
-    let initialItem = _.intersectionBy(this.props.items, [{name: this.state.value}], 'name');
-    initialItem = initialItem ? initialItem[0] : {};
-
     this.body.style.display = 'none';
-
-    this.props.onChange(initialItem);
   }
 
   handleChange(value) {
