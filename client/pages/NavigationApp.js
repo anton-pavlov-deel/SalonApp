@@ -8,8 +8,10 @@ const {
 } = UIPack;
 
 export default class NavigationApp extends Component {
-  render() {
-    const links = [
+  constructor(props) {
+    super(props);
+
+    this.links = [
       {
         href: 'employees',
         text: 'Сотрудники',
@@ -18,12 +20,25 @@ export default class NavigationApp extends Component {
         href: 'clients',
         text: 'Клиенты'
       }
-    ]
+    ];
 
+    this.state = {
+      page: this.links[0]
+    };
+  }
+
+  handlePageChange(page) {
+    this.setState({
+      page
+    });
+  }
+
+  render() {
     return (
       <div className='navigation-app'>
         <Logo />
-        {links.map((object, index) => <NavigationLink key={index} href={object.href} text={object.text}/>)}
+        {this.links.map((object, index) => <NavigationLink key={index} href={object.href} text={object.text} onClick={this.handlePageChange.bind(this, object)}/>)}
+        <h1 className='page-title'>{this.state.page.text}</h1>
       </div>
     );
   }
