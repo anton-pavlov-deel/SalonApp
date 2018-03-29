@@ -36,8 +36,10 @@ export default class NavigationApp extends Component {
   render() {
     return (
       <div className='navigation-app'>
-        <Logo />
-        {this.links.map((object, index) => <NavigationLink key={index} href={object.href} text={object.text} onClick={this.handlePageChange.bind(this, object)}/>)}
+        <div className='logo-and-links'>
+          <Logo />
+          {this.links.map((object, index) => <NavigationLink key={index} href={object.href} text={object.text} onClick={this.handlePageChange.bind(this, object)}/>)}
+        </div>
         <h1 className='page-title'>{this.state.page.text}</h1>
       </div>
     );
