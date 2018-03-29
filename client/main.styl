@@ -19,5 +19,21 @@
   right 0px
   bottom 0px
   background-image linear-gradient(to top, #2ee59d, #ffffff 35%)
-  overflow scroll
+  overflow-y scroll
   overflow-x none
+
+::-webkit-scrollbar
+    width 5px
+
+::-webkit-scrollbar-track
+    background #f1f1f1
+    border-radius 20px
+
+::-webkit-scrollbar-thumb
+    background #2ee59dcc
+    border-radius 20px
+    transition 0.3s
+
+::-webkit-scrollbar-thumb:hover
+    background: #2ee59dff;
+    transition 0.3s
