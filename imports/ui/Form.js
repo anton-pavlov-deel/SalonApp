@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import Button from './Button';
-import _ from 'lodash';
+import DatePicker from 'react-datepicker';
+import _ from 'lodash'
+import moment from 'moment';
 import DICT from '../constants/dict.js';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default class Form extends Component {
   constructor(props) {
     super(props);
 
-    this.state = _.zipObject(props.fields, _.fill(Array(props.fields.length), ''));
+    const fieldNames = props.fields.map(field => field.name);
+    const initialValues = props.fields.map(field => field.type === 'text' ? '' : moment());
+
+    this.state = _.zipObject(fieldNames, initialValues);
     console.log(this.state);
   }
 
@@ -16,6 +23,12 @@ export default class Form extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
+  }
+
+  handleChangeDate(name, date) {
+    this.setState({
+      [name]: date
+    });
   }
 
   handleSubmit(event) {
@@ -30,19 +43,43 @@ export default class Form extends Component {
       fields
     } = this.props;
 
+    const inputs = fields.map(field => {
+      switch(field.type) {
+        case 'text':
+          return {
+            ...field,
+
+            component: <input
+              className='text-input'
+              type='text'
+              name={field.name}
+              pattern={field.pattern}
+              required
+              value={this.state[field.name]}
+              onChange={this.handleChange.bind(this)}
+            />
+          }
+        case 'date':
+          return {
+            ...field,
+
+            component: <DatePicker
+              className='date-input'
+              name={field.name}
+              required
+              selected={this.state[field.name]}
+              onChange={this.handleChangeDate.bind(this, field.name)}
+            />
+        }
+      }
+    });
+
     return (
       <form onSubmit={this.handleSubmit.bind(this)} className={classNames('form', this.props.className)}>
         <table>
           <thead></thead>
           <tbody>
-            {fields.map((field, index) => (<tr key={index}><th>{`${DICT[field]}: `}</th><td>
-                                                                                          <input
-                                                                                            type='text'
-                                                                                            name={field}
-                                                                                            required
-                                                                                            value={this.state[field]}
-                                                                                            onChange={this.handleChange.bind(this)}
-                                                                                          /></td></tr>))}
+            {inputs.map((input, index) => (<tr key={index}><th>{`${DICT[input.name]}: `}</th><td>{input.component}</td></tr>))}
           </tbody>
         </table>
         <Button
