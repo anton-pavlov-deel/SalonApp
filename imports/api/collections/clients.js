@@ -20,7 +20,7 @@ export const subscribeClients = (cb) => {
         cb();
         resolve();
       }
-    }, 500);
+    }, 50);
   });
 }
 

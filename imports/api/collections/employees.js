@@ -20,7 +20,7 @@ export const subscribeEmployees = (cb) => {
         cb();
         resolve();
       }
-    }, 500);
+    }, 50);
   });
 }
 
