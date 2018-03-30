@@ -29,6 +29,7 @@ class AddEmployeePopup extends Component {
       {
         name: 'percent',
         type: 'text',
+        pattern: '0\.[0-9]'
       },
 
       {
@@ -39,6 +40,7 @@ class AddEmployeePopup extends Component {
       {
         name: 'number',
         type: 'text',
+        pattern: '[0-9]{11}'
       }
     ]
 

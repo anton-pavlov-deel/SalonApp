@@ -13,7 +13,7 @@ export default class Form extends Component {
     super(props);
 
     const fieldNames = props.fields.map(field => field.name);
-    const initialValues = props.fields.map(field => field.type === 'text' ? '' : moment());
+    const initialValues = props.fields.map(field => field.type === 'text' ? '' : moment().format());
 
     this.state = _.zipObject(fieldNames, initialValues);
     console.log(this.state);
@@ -27,7 +27,7 @@ export default class Form extends Component {
 
   handleChangeDate(name, date) {
     this.setState({
-      [name]: date
+      [name]: date.format()
     });
   }
 
@@ -67,7 +67,7 @@ export default class Form extends Component {
               className='date-input'
               name={field.name}
               required
-              selected={this.state[field.name]}
+              selected={moment(this.state[field.name])}
               onChange={this.handleChangeDate.bind(this, field.name)}
             />
         }
