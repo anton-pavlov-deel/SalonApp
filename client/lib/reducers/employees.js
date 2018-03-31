@@ -33,7 +33,9 @@ export function employees(state = [], action) {
       ]
     case REMOVE_EMPLOYEE:
       Employees.remove({_id: action.employee._id});
-      return _.difference(state, [action.employee])
+      const diff = _.differenceBy(state, [action.employee], '_id');
+      console.log(`DIFF: ${JSON.stringify(diff)}`);
+      return diff ? diff : {}
     default:
       return state;
   }
