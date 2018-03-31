@@ -15,10 +15,29 @@ class AddClientPopup extends Component {
   }
 
   render() {
+    const formFields = [
+      {
+        name: 'name',
+        type: 'text'
+      },
+
+      {
+        name: 'birth',
+        type: 'date',
+      },
+
+      {
+        name: 'number',
+        type: 'text',
+        pattern: '\+[0-9]{11}',
+        placeholder: 'Введите номер в формате: +389999999999'
+      }
+    ]
+
     const form = <Form
       className='add-client-form'
       onSubmit={this.handleSubmit.bind(this)}
-      fields={['name', 'birth', 'number']}
+      fields={formFields}
     />
 
     return (

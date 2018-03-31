@@ -57,6 +57,7 @@ export default class Form extends Component {
               required
               value={this.state[field.name]}
               onChange={this.handleChange.bind(this)}
+              placeholder={field.placeholder}
             />
           }
         case 'date':

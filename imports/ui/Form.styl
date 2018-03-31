@@ -4,6 +4,8 @@
   top 5px
   left 5px
   right 5px
+  & .react-datepicker-popper
+    z-index 6
   & .submit-button
     width 30%
     bottom 0px
@@ -14,17 +16,21 @@
     & td
       padding 0px
       & .text-input
-        font-size 20px
+        font-size 12px
+        width 90%
+        font-style sans-serif
         border none
         border-bottom 1px solid gray
         &:focus
           outline: none
       & .date-input
-        font-size 20px
+        font-size 12px
+        width 100%
         border none
         border-bottom 1px solid gray
         &:focus
           outline: none
 
     & th
+      width 35%
       text-align right

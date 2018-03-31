@@ -40,7 +40,7 @@ class AddEmployeePopup extends Component {
       {
         name: 'number',
         type: 'text',
-        pattern: '[0-9]{11}'
+        pattern: '\\+[0-9]{11}'
       }
     ]
 
