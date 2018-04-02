@@ -18,7 +18,8 @@ class AddClientPopup extends Component {
     const formFields = [
       {
         name: 'name',
-        type: 'text'
+        type: 'text',
+        placeholder: 'Введите Ф.И.О. нового клиента'
       },
 
       {

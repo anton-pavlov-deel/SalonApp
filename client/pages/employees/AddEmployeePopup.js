@@ -18,18 +18,21 @@ class AddEmployeePopup extends Component {
     const formFields = [
       {
         name: 'name',
-        type: 'text'
+        type: 'text',
+        placeholder: 'Введите Ф.И.О. нового сотрудника'
       },
 
       {
         name: 'role',
         type: 'text',
+        placeholder: 'Введите должность нового сотрудника'
       },
 
       {
         name: 'percent',
         type: 'text',
-        pattern: '0\.[0-9]'
+        pattern: '',
+        placeholder: 'Введите число от 0 до 100'
       },
 
       {
