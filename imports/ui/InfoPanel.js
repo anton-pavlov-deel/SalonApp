@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import Panel from './Panel';
 import DICT from '../constants/dict';
+import moment from 'moment';
 
 export default class InfoPanel extends Component {
   render() {
@@ -19,8 +20,8 @@ export default class InfoPanel extends Component {
             {Object.keys(content).map(key => (
               DICT[key] &&
               <tr key={key}>
-                <th>{DICT[key]}:</th>
-                <td>{content[key]}</td>
+                <th>{DICT[key].translate}:</th>
+                <td>{DICT[key].type === 'date' ? moment(content[key]).format('MMMM D YYYY') : content[key]}</td>
               </tr>))}
           </tbody>
         </table>

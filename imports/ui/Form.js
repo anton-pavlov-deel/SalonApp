@@ -80,7 +80,7 @@ export default class Form extends Component {
         <table>
           <thead></thead>
           <tbody>
-            {inputs.map((input, index) => (<tr key={index}><th>{`${DICT[input.name]}: `}</th><td>{input.component}</td></tr>))}
+            {inputs.map((input, index) => (<tr key={index}><th>{`${DICT[input.name].translate}: `}</th><td>{input.component}</td></tr>))}
           </tbody>
         </table>
         <Button
